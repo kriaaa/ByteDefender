@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Scan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+    max-width: 800px;
+    margin: 50px auto; /* Adjusted margin to center the container */
+    margin-top: 100px;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(255, 0, 0, 0.6); */
+    text-align: center;
+}
+
+        /* h1 {
+            text-align: center;
+            color: #ff0000;
+            margin-bottom: 20px;
+        } */
+        .scan-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        #scan-image {
+            width: 200px; /* Adjust width as needed */
+            margin-bottom: 20px; /* Add space between image and file input */
+        }
+        .scan-form label {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .scan-form input[type="file"] {
+            margin-bottom: 20px;
+            padding: 15px;
+            /* border: 2px solid #ff0000;
+            border-radius: 5px; */
+            background-color: #333;
+            color: #fff;
+            font-size: 18px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .scan-btn {
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .scan-btn:hover {
+            background-color: #ff3333;
+        }
+        .navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start; /* Align elements to the left */
+    align-items: center;
+    position: fixed; 
+    top: 0; 
+    z-index: 999; 
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.nav-links a:hover {
+    color: #f00;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}"><img alt="Home" src="{% static 'images/bdlogo.png' %}"></a>
+        </div>
+        <div class="nav-links">
+           <a href="{% url 'scan' %}" class="{% if request.path == '/scan/' %}active{% endif %}">Scan</a>
+            <a href="{% url 'help' %}">Help</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+    </nav>
+    
+
+    <div class="container">
+       {% for message in messages %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; border-radius:18px; padding:12px;" id="alertMessage">
+    <strong>{{ message }}</strong>
+</div>
+{% endfor %}
+        <!-- <h1>Antivirus Scan</h1> -->
+        <img src="{% static 'images/fileupload.png' %}" alt="Scan Image" id="scan-image">
+        <div class="scan-form">
+            <form action="#" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+               
+                <label for="file">Select a file to scan:</label>
+                <input type="file" id="file" name="file">
+                <button type="submit" class="scan-btn">Scan File</button>
+            </form>
+        </div>
+    </div>
+
+  <script>
+   setTimeout(function() {
+        document.getElementById('alertMessage').style.display = 'none';
+    }, 5000);
+  </script>  
+</body>
+</html>

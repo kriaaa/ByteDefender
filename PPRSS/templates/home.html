@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  
+<!-- Mirrored from www.clamav.net/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Jan 2024 17:12:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+<!--Here-->
+    <title>ByteDefender</title>
+    <link rel="stylesheet" href="{% static 'css/application-211aa2782c2e7514423023c824db87860215557bc8246c179820d6a0323eb93c.css' %}" media="all" />
+    
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="DP6_O_rtX4h9JrmNWNaYaMd9MMvkJ1vQaatH4515nyVZjle1AB3H1ANgcSa93WZfaHsxERTIkZLBNZGOINBB_Q" />
+  </head>
+  <body data-spy="scroll" data-target="#navbar" data-offset="80">
+    <div class="wrap">
+      <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}"><img alt="Home" src="{% static 'images/clamav-brand-97d5f8373e4ee2db7b7955e3a94fb6ea802fede9165df3740cb9bdab770b7920.png' %}" width="20"></a>
+        </div>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'login' %}">Scan</a></li>
+            <li><a href="{% url 'help' %}">Help</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container-fluid">
+  <div class="row top-row"> <!-- introduction -->
+    <div class="col-xs-12 center">
+      <!-- put announcements here -->
+    </div>
+    <div class="col-sm-10 col-sm-offset-1 logo">
+      <img src="{% static 'images/byteDefender-trademark.jpg' %}" width="300">
+
+      <p>ByteDefender is a reliable antivirus for detecting whether the file is malicious or not.</p>
+    </div>
+    <div class="col-xs-12 center">
+      <a href="{% url 'login' %}">
+        <div class="dwn-btn center">Protect Me</div>
+      </a>
+        
+    </div>
+  </div>
+</div>
+<div class="container-fluid white-bg shadow-bg black">
+  <div class="row section">
+    <div class="col-sm-3 col-xs-12 col-sm-offset-1">
+      <h2>User-friendly Interface</h2>
+
+      <p>ByteDefender provides an intuitive design and navigation to make it easy for users to find information.</p>
+    </div>
+    <div class="col-sm-7 col-xs-12 illustrations">
+      <img height="400" src="{% static 'images/Ill-01.png' %}" class="visible-lg">
+      <img height="350" src="{% static 'images/Ill-01.png' %}" class="visible-md">
+      <img height="300" src="{% static 'images/Ill-01.png' %}" class="visible-sm">
+      <img height="250" src="{% static 'images/Ill-01.png' %}" class="visible-xs">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 col-xs-12 col-sm-offset-1">
+      <h2>File Security</h2>
+
+      <p>ByteDefender makes sure that the user's file safety is maintained and it is not accessed by an unauthorised user.</p>
+    </div>
+    <div class="col-sm-7 col-xs-12 illustrations">
+      <img height="400" src="{% static 'images/Ill-02.png' %}" class="visible-lg"><br>
+      <img height="300" src="{% static 'images/Ill-02.png' %}" class="visible-md"><br>
+      <img height="300" src="{% static 'images/Ill-02.png' %}" class="visible-sm"><br>
+      <img height="275" src="{% static 'images/Ill-02.png' %}" class="visible-xs"><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 col-sm-offset-1 col-xs-12">
+      <h2>Versatile</h2>
+
+      <p>ByteDefender supports all the files with PE file format.</p>
+    </div>
+    <div class="col-sm-7 col-xs-12 illustrations">
+      <img height="350" src="{% static 'images/Ill-03.png' %}" class="visible-lg"><br>
+      <img height="300" src="{% static 'images/Ill-03.png' %}" class="visible-md"><br>
+      <img height="250" src="{% static 'images/Ill-03.png' %}" class="visible-sm"><br>
+      <img height="225" src="{% static 'images/Ill-03.png' %}" class="visible-xs"><br>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row section">
+    <div class="col-sm-3 col-sm-offset-1 col-xs-12">
+      <h2>Compatible</h2>
+
+      <p>ByteDefender can work on various browsers with latest versions.</p>
+    </div>
+    <div class="col-sm-7 col-xs-12 illustrations">
+      <img height="290" src="{% static 'images/opensource.png' %}" class="visible-lg"><br>
+      <img height="260" src="{% static 'images/opensource.png' %}" class="visible-md"><br>
+      <img height="210" src="{% static 'images/opensource.png' %}" class="visible-sm"><br>
+      <img height="155" src="{% static 'images/opensource.png' %}" class="visible-xs"><br>
+    </div>
+  </div>
+</div>
+
+    <div class="container-fluid">
+      <div class="row footer">
+        <div class="col-xs-12 center">
+          <p class="dark-gray"> &copy; All rights reserved. &#124;  <br class="hidden-xs"/> This Website is developed by IT-3 group <a href="{% url 'contact' %}" target="_blank">Contact Us.</a></p>
+          <img class="TM" src="{% static 'images/logo.jpg' %}" height="100px" width="100px">
+        </div>
+      </div>
+    </div>
+    </div>
+  
+</body>
+
+<!-- Mirrored from www.clamav.net/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Jan 2024 17:12:26 GMT -->
+</html>
+
+

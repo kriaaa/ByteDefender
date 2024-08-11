@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/cont.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+ .footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px; /* Push the footer to the bottom */
+    width:100vw;
+    margin-bottom: 0px;
+  
+}
+
+.footer a {
+    color: white;
+   
+}
+
+.footer a:hover {
+    color: #f00;
+   
+}
+
+.TM {
+    margin-top: 10px; /* Adjust as needed */
+}
+    </style>
+</head>
+
+<body style="background-image:url('939055.jpg'); background-position: center; background-size: cover;">
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}"><img alt="Home" src="{% static 'images/bdlogo.png' %}"></a>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'scan' %}">Scan</a>
+            <a href="{% url 'help' %}">Help</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'login' %}">Login</a>
+           
+        </div>
+    </nav>
+
+    <!-- {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %} -->
+
+
+    <div >
+        <div class="container" style="margin-left: 150px; margin-top:90px;">
+        {% for message in messages %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; border-radius:18px; padding:12px;" id="alertMessage">
+    <strong>{{ message }}</strong>
+</div>
+{% endfor %}
+            <div class="content">
+            
+                <div class="left-side">
+                    <div class="address details">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="topic">Address</div>
+                        <!-- Your address content goes here -->
+                    </div>
+                    <div class="phone details">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="topic">Phone</div>
+                        <div class="text-one">+91-82399******</div>
+                        <!-- Your phone content goes here -->
+                    </div>
+                    <div class="email details">
+                        <i class="fas fa-envelope"></i>
+                        <div class="topic">Email</div>
+                        <div class="text-one">bytedefender@gmail.com</div>
+                        <!-- Your email content goes here -->
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="topic-text">Contact Us</div>
+                    <p style="color:white;">Feel free to contact us if you are having any queries.</p>
+                    <form action="{% url 'contact' %}"    method="post">{% csrf_token %}
+                        <div class="input-box">
+                            <input type="text" placeholder="Enter your name" required  name="name">
+                        </div>
+                        <div class="input-box">
+                            <input type="email" placeholder="Enter your email" required  name="email">
+                        </div>
+                        <div class="input-box message-box" >
+                            <textarea placeholder="Enter your message" required name="message"></textarea>
+                        </div>
+                        <div class="button">
+                            <input type="submit" value="Send Now">
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row footer">
+            <div class="col-xs-12 center">
+                <p class="dark-gray"> &copy; All rights reserved. &#124; </ <br class="hidden-xs"/> This Website is developed by IT-3 group <a href="{% url 'contact' %}" target="_blank">Contact Us.</a></p>
+                <img class="TM" src="{% static 'images/logo.jpg' %}" height="100px" width="100px">
+            </div>
+        </div>
+    </div>
+   <script>
+        
+         setTimeout(function() {
+        document.getElementById('alertMessage').style.display = 'none';
+    }, 5000);
+    </script>
+</body>
+
+</html>
+
+

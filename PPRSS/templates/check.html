@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antivirus Login</title>
+<!-- Include Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-image: url("{% static 'images\galaxy.gif' %}");
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .flash-card {
+    width: 500px;
+    height: 400px;
+    background-color: rgba(40, 40, 43, 0.8); /* Black background with opacity */
+    color: #fff; /* Lighter red text */
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    animation: fadeIn 0.8s ease forwards;
+    box-shadow: 0 0 50px #ff3333;
+    margin-top: 20px; /* Add margin to separate from alert */
+}
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .flash-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    align-items: center;
+    transition: background-color 0.3s;
+  }
+
+  .flash-button:hover {
+    background-color: green;
+  }
+
+  .flash-away {
+    animation: flashAway 0.5s ease forwards;
+  }
+  .flash-card p {
+  margin-bottom: 10px;
+}
+
+.flash-card span.key {
+  font-weight: bold;
+  color: red;
+}
+
+.flash-card span.value {
+  color: white;
+}
+
+.flash-card .key-value-pair {
+  margin-bottom: 12px; /* Adjust as needed */
+}
+
+.flash-card h2{
+  font-weight: bold;
+  padding:20px;
+  padding-left:40px;
+}
+
+  @keyframes flashAway {
+    from {
+      opacity: 1;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    to {
+      opacity: 0;
+      box-shadow: none;
+    }
+  }
+  .flash-card .key-value-pair .value {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Show the value spans with animation */
+.flash-card .key-value-pair.show .value {
+  opacity: 1;
+}
+
+/* .flash-card .key-value-pair .value {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+} */
+
+/* Show the value spans with animation */
+.flash-card .key-value-pair.show .value {
+  opacity: 1;
+}
+
+/* Apply animation delay to each value */
+.flash-card .key-value-pair .value {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Apply animation delay to each value */
+.flash-card .key-value-pair:nth-child(1) .value {
+  animation-delay: 1.5s;
+}
+.flash-card .key-value-pair:nth-child(2) .value {
+  animation-delay: 0.3s;
+}
+.flash-card .key-value-pair:nth-child(3) .value {
+  animation-delay: 0.6s;
+}
+.flash-card .key-value-pair:nth-child(4) .value {
+  animation-delay: 1s;
+}
+
+ 
+</style>
+</head>
+<body>
+
+  {% if prediction == 'malicious' %}
+  <div id="maliciousAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Your file is MALICIOUS!</strong>
+  </div>
+{% elif prediction == 'non-malicious' %}
+  <div id="safeAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Your file is safe.</strong>
+  </div>
+{% endif %}
+  
+  
+
+<div class="flash-card" id="flashCard">
+  <h2>Check out the Report!</h2>
+  <div class="key-value-pair show">
+    <span class="key">File Name:</span> <span class="value">{{ file_name }}</span>
+  </div>
+  <div class="key-value-pair">
+    <span class="key">File Extension:</span> <span class="value">{{ file_extension }}</span>
+  </div>
+  <div class="key-value-pair">
+    <span class="key">Upload Date:</span> <span class="value">{{ upload_date }}</span>
+  </div>
+  <div class="key-value-pair">
+    <span class="key">Upload Time:</span> <span class="value">{{ upload_time }}</span>
+  </div>
+ 
+
+  <button class="flash-button" onclick="flashAway()">OK</button>
+</div>
+
+<script>
+  function flashAway() {
+    var flashCard = document.getElementById('flashCard');
+    flashCard.classList.add('flash-away');
+    setTimeout(function() {
+      window.location.href = "{% url 'home' %}"; // Change the URL to your desired page
+    }, 500); // Adjust the timeout to match the duration of the animation
+  }
+
+  // Function to trigger the animation
+function showValues() {
+  const pairs = document.querySelectorAll('.flash-card .key-value-pair');
+  pairs.forEach((pair, index) => {
+    setTimeout(() => {
+      pair.classList.add('show');
+    }, index * 500); // Adjust the delay as needed
+  });
+
+   
+setTime(function() {
+    $('#maliciousAlert, #safeAlert').fadeOut('slow');
+  }, 5000);
+}
+
+
+
+
+  
+   
+</script>
+
+</body>
+</html>

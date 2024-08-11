@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ByteDefender</title>
+    
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="DP6_O_rtX4h9JrmNWNaYaMd9MMvkJ1vQaatH4515nyVZjle1AB3H1ANgcSa93WZfaHsxERTIkZLBNZGOINBB_Q" />
+</head>
+<style>
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("{% static 'images/demon.jpeg' %}");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: none;
+    color: #fff;
+}
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start; /* Align elements to the left */
+    align-items: center;
+    position: fixed; 
+    top: 0; 
+    z-index: 999; 
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.nav-links a:hover {
+    color: #f00;
+}
+
+
+main {
+    padding: 20px;
+    background-size: cover;
+    background-image: url('iStock.jpg');
+    background-position: center;
+}
+
+.about-section {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #be2929;
+}
+
+h2 {
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+    color: #be2929;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+ul {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.footer .s {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer a {
+    color: white;
+}
+
+.footer a:hover {
+    color: #f00;
+}
+
+.TM {
+    margin-top: 10px; /* Adjust as needed */
+}
+
+
+</style>
+<body>
+    
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}"><img alt="Home" src="{% static 'images/bdlogo.png' %}"></a>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'scan' %}">Scan</a>
+            <a href="{% url 'help' %}">Help</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'login' %}">Login</a>
+           
+        </div>
+    </nav>
+    <main>
+        <section class="about-section">
+            <h1>About ByteDefender</h1>
+            <h2>Welcome to Bytedefender, your reliable shield against digital threats!</h2>
+
+            <h3>Our Mission</h3>
+            <p>At Bytedefender, we are committed to providing a robust and straightforward antivirus solution.
+               Our mission is to keep your digital world secure by focusing on one key aspect – portable executable
+               files. We understand the ever-evolving landscape of cybersecurity, and our dedicated team is on a
+               mission to make your online experience worry-free.</p>
+            <h3>What Sets Us Apart?</h3>
+            <p><ul><li>Advanced Threat Detection: Our antivirus software employs advanced algorithms to detect and neutralize
+                threats effectively.</li> 
+                <li>User-Friendly Interface: We prioritize simplicity without compromising on powerful features.</li>
+                <li>Timely Updates: Regular updates ensure that your antivirus is equipped to handle the latest security
+                    challenges.</li>
+                    </ul>
+            </p>
+
+            <h3 id="parag">Transparency and Trust</h3>
+            <p>We believe in transparency and earning your trust. Bytedefender operates with the highest standards of integrity.
+                Our commitment to honesty means that when we say your files are safe, you can trust our verdict.</p>
+
+            <h2>Thank you for choosing Bytedefender. Stay safe, stay secure!</h2>
+        </section>
+    </main>
+
+     <div class="container-fluid">
+        <div class="row footer">
+            <div class="s">
+                <p class="dark-gray"> &copy; All rights reserved. &#124; </ <br class="hidden-xs"/> This Website is developed by IT-3 group <a href="{% url 'contact' %}" target="_blank">Contact Us.</a></p>
+                <img class="TM" src="{% static 'images/logo.jpg' %}" height="100px" width="100px">
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
+

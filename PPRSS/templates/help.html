@@ -1,0 +1,654 @@
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
+    
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="DP6_O_rtX4h9JrmNWNaYaMd9MMvkJ1vQaatH4515nyVZjle1AB3H1ANgcSa93WZfaHsxERTIkZLBNZGOINBB_Q" />
+    <style>
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("{% static 'images/demon.jpeg' %}");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: none;
+    color: #fff;
+}
+
+
+
+.logo img {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+}
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start; /* Align elements to the left */
+    align-items: center;
+    position: fixed; 
+    top: 0; 
+    z-index: 999; 
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.nav-links a:hover {
+    color: #f00;
+}
+
+header {
+    background-color: #0e0d0d;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    
+}
+
+main {
+    padding: 20px;
+    background-image: url('iStock.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.about-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+}
+
+h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #be2929; /* Lighter grey text */
+}
+
+h2 {
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+h1 {
+    color: #be2929;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+ul {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#heading {
+    color: #be2929; /* Lighter grey text */
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 600px) {
+    nav li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    main {
+        padding: 10px;
+    }
+
+    .about-section {
+        padding: 10px;
+    }
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #f00;
+}
+
+.TM {
+    margin-top: 10px; /* Adjust as needed */
+}
+
+    </style>
+</head>
+
+<body>
+  
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}"><img alt="Home" src="{% static 'images/bdlogo.png' %}"></a>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'scan' %}">Scan</a>
+            <a href="{% url 'help' %}">Help</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'login' %}">Login</a>
+          
+        </div>
+    </nav>
+    
+    <header>
+        <h1>ByteDefender</h1>
+      
+   
+
+
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - ByteDefender</title>
+    <link rel="stylesheet" href="styleh.css">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img alt="Home" src="assets/bdlogo.png"></a>
+            </div>
+            <div class="nav-links">
+               <a href="{% url 'scan' %}">Scan</a>
+            <a href="{% url 'help' %}">Help</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'login' %}">Login</a>
+          
+            </div>
+        </div>
+    </nav>
+    <header>
+        <h1>ByteDefender</h1>
+    </header>
+
+    <main>
+        <section class="about-section">
+            <h1>Help Center</h1>
+            <h2>Welcome to ByteDefender's Help Center</h2>
+
+            <h3>How ByteDefender Works</h3>
+            <p>
+                ByteDefender is your trusted companion in the digital world, specializing in the security of portable executable
+                files. Our static website is designed to simplify the antivirus process, focusing solely on determining whether a
+                virus is present in your files.
+            </p>
+
+            <h3>Using ByteDefender</h3>
+            <p>
+                <ol>
+                    <li><strong>Uploading files</strong>
+                        <ul>
+                            <li>Navigate to the "Scan" section on our homepage.</li>
+                            <li>Select the option to upload your portable executable file.</li>
+                            <li>Our system will swiftly analyze the file for potential threats.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Interpreting Results</strong>
+                        <ul>
+                            <li>Results are displayed promptly, indicating whether the file is safe or potentially infected.</li>
+                            <li>Green checkmarks signify a clean file, while warnings indicate potential threats.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </p>
+
+            <h3>FAQs</h3>
+            <p>
+                <ol>
+                    <li id="heading"><strong>Which file formats are compatible with ByteDefender's antivirus scanning?</strong>
+                        <ul>
+                            <li>ByteDefender specializes in safeguarding your digital space by concentrating on a specific category of
+                                files known as "portable executable files" (PE files). Portable executable files are commonly associated
+                                with Windows operating systems and include file formats such as .exe (executable), .dll (dynamic link library),
+                                .sys (system file), and .ocx (OLE control extension), among others.
+                                <ul>
+                                    <li><strong>Why Portable Executable Files?</strong>
+                                        <p>
+                                            - Portable executable files are a common target for malicious activities, making them a critical
+                                            focus for our antivirus solution.
+                                            - By narrowing our scope to portable executables, we can deliver a faster and more efficient scanning
+                                            process, ensuring that your key executable files are thoroughly examined for potential threats.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="heading"><strong>Does ByteDefender actively remove viruses from my files?</strong>
+                        <ul>
+                            <li>
+                                ByteDefender operates with a primary focus on early detection and prevention, prioritizing the safety of
+                                your digital environment. While our cutting-edge technology excels in identifying potential threats within
+                                portable executable files, it is important to note that ByteDefender does not directly remove viruses.
+                                <br>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="heading"><strong>Does ByteDefender provide information about the specific type of virus detected?</strong>
+                        <ul>
+                            <li>
+                                ByteDefender is designed to be a powerful and efficient antivirus solution focused on detecting threats within
+                                portable executable files. While our system can identify the presence of viruses, it does not provide detailed
+                                information about the specific type or variant of the virus.
+                                <br>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="heading"><strong>Can I trust ByteDefender to keep my files secure?</strong>
+                        <ul>
+                            <li>
+                                Absolutely. At ByteDefender, we prioritize the security and privacy of your files as paramount. When you use our
+                                antivirus services, you can trust that your data will be handled with the utmost care and will not be given to
+                                any unauthorized entities.
+                                <br>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="heading"><strong>Is ByteDefender's website dynamic, capable of detecting new emerging viruses?</strong>
+                        <ul>
+                            <li>
+                                No, ByteDefender's website is static, and it does not dynamically adapt to detect new emerging viruses. While our
+                                antivirus solution is robust and effective for known threats within portable executable files, the static nature of
+                                our website means that it does not provide real-time updates for the identification of new or emerging viruses.
+                                <br>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </p>
+
+            <h2>Contact Us</h2>
+            <p>For personalized assistance or further inquiries, our support team is here to help. Reach out to us at support@bytedefender.com, and we'll respond promptly.</p>
+
+            <h2>Stay Informed, Stay Secure</h2>
+            <p>ByteDefender is committed to keeping you informed and secure. Our help section is designed to assist you in navigating our services seamlessly.
+                Thank you for choosing ByteDefender to protect your digital world.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ByteDefender. All rights reserved.</p>
+    </footer>
+</body>
+
+</html> {% endcomment %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - ByteDefender</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("{% static 'images/demon.jpeg' %}");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: none;
+    color: #fff;
+}
+
+
+
+    .navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start; /* Align elements to the left */
+    align-items: center;
+    position: fixed; 
+    top: 0; 
+    z-index: 999; 
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.nav-links a:hover {
+    color: #f00;
+}
+
+
+
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+
+
+.logo img {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+}
+
+
+
+header {
+    background-color: #0e0d0d;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    background-image: url('iStock.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.about-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+}
+
+h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #be2929; /* Lighter grey text */
+}
+
+h2 {
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+h1 {
+    color: #be2929;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+   
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+ul {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#heading {
+    color: #be2929; /* Lighter grey text */
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 600px) {
+    nav li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    main {
+        padding: 10px;
+    }
+
+    .about-section {
+        padding: 10px;
+    }
+}
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+.footer a {
+    color: white;
+    {% comment %} text-decoration: none; {% endcomment %}
+}
+
+.footer a:hover {
+    color: #f00;
+}
+
+.TM {
+    margin-top: 10px; /* Adjust as needed */
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}"><img alt="Home" src="{% static 'images/bdlogo.png' %}"></a>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'scan' %}">Scan</a>
+            <a href="{% url 'help' %}">Help</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'login' %}">Login</a>
+           
+        </div>
+    </nav>
+    <header>
+        <h1>ByteDefender</h1>
+      
+    </header>
+
+    <main>
+        <section class="about-section">
+            <center><h1 style="text-decoration:underline; font-weight:500px;">Help Center</h1></center><br>
+            <center><h2>Welcome to ByteDefender's Help Center</h2><br></center>
+
+            <h3>How ByteDefender Works</h3>
+            <p>
+                ByteDefender is your trusted companion in the digital world, specializing in the security of portable executable
+                files. Our static website is designed to simplify the antivirus process, focusing solely on determining whether a
+                virus is present in your files.<br><br>
+            </p>
+
+            <h3>Using ByteDefender</h3>
+            <p>
+                <ol>
+                    <li>Uploading files
+                        <ul>
+                            <li>Navigate to the "Scan" section on our homepage.</li>
+                            <li>Select the option to upload your portable executable file.</li>
+                            <li>Our system will swiftly analyze the file for potential threats.</li><br>
+                        </ul>
+                    </li>
+                    <li>Interpreting Results
+                        <ul>
+                            <li>Results are displayed promptly, indicating whether the file is safe or potentially infected.</li>
+                            <li>Green checkmarks signify a clean file, while warnings indicate potential threats.</li><br>
+                        </ul>
+                    </li>
+                </ol>
+            </p>
+
+            <h3>FAQs</h3>
+            <p>
+                <ol>
+                    <li id="heding">Which file formats are compatible with ByteDefender's antivirus scanning?
+                        <ul>
+                            <li>ByteDefender specializes in safeguarding your digital space by concentrating on a specific category of
+                                files known as "portable executable files" (PE files). Portable executable files are commonly associated
+                                with Windows operating systems and include file formats such as .exe (executable), .dll (dynamic link library),
+                                .sys (system file), and .ocx (OLE control extension), among others.<br>
+                                <ul><br><br>
+                                    <h3>Why Portable Executable Files?</h3>
+                                    <p>
+                                        - Portable executable files are a common target for malicious activities, making them a critical
+                                        focus for our antivirus solution.
+                                        - By narrowing our scope to portable executables, we can deliver a faster and more efficient scanning
+                                        process, ensuring that your key executable files are thoroughly examined for potential threats.<br><br>
+                                    </p>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="heading">Does ByteDefender actively remove viruses from my files?
+                        <ul>
+                            <li><p style="color:white;">
+                                ByteDefender operates with a primary focus on early detection and prevention, prioritizing the safety of
+                                your digital environment. While our cutting-edge technology excels in identifying potential threats within
+                                portable executable files, it is important to note that ByteDefender does not directly remove viruses.
+                                <br><br>
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="heading">Does ByteDefender provide information about the specific type of virus detected?
+                        <ul>
+                            <li style="color:white;">
+                                ByteDefender is designed to be a powerful and efficient antivirus solution focused on detecting threats within
+                                portable executable files. While our system can identify the presence of viruses, it does not provide detailed
+                                information about the specific type or variant of the virus.
+                                <br><br>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="heading">Can I trust ByteDefender to keep my files secure?
+                        <ul>
+                            <li  style="color:white;">
+                                Absolutely. At ByteDefender, we prioritize the security and privacy of your files as paramount. When you use our
+                                antivirus services, you can trust that your data will be handled with the utmost care and will not be given to
+                                any unauthorized entities.
+                                <br><br>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="heading">Is ByteDefender's website dynamic, capable of detecting new emerging viruses?
+                        <ul>
+                            <li  style="color:white;">
+                                No, ByteDefender's website is static, and it does not dynamically adapt to detect new emerging viruses. While our
+                                antivirus solution is robust and effective for known threats within portable executable files, the static nature of
+                                our website means that it does not provide real-time updates for the identification of new or emerging viruses.
+                                <br><br>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </p>
+
+            <h2  style="color:red;">Contact Us</h2>
+            <p>For personalized assistance or further inquiries, our support team is here to help. Reach out to us at support@bytedefender.com, and we'll respond promptly.</p><br>
+
+            <h2  style="color:red;">Stay Informed, Stay Secure</h2>
+            <p>ByteDefender is committed to keeping you informed and secure. Our help section is designed to assist you in navigating our services seamlessly.
+                Thank you for choosing ByteDefender to protect your digital world.</p>
+        </section>
+    </main>
+
+    <!--<footer>
+        <p>&copy; 2024 ByteDefender. All rights reserved.</p>
+    </footer>-->
+    <!-- Footer from the original HTML file -->
+    <div class="container-fluid">
+        <div class="row footer">
+            <div class="col-xs-12 center">
+                <p class="dark-gray"> &copy; All rights reserved. &#124; </ <br class="hidden-xs"/> This Website is developed by IT-3 group <a href="{% url 'contact' %}" target="_blank">Contact Us.</a></p>
+                <img class="TM" src="{% static 'images/logo.jpg' %}" height="100px" width="100px">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

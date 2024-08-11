@@ -1,0 +1,363 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+   
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    position: fixed; 
+    top: 0; 
+    z-index: 999; 
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.nav-links a:hover {
+    color: #f00;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.limage img {
+    width: 100%;
+    height: auto;
+}
+
+.wrapper {
+    width: 400px;
+    height: 600px;
+    background: #000;
+    box-shadow: 0 0 50px red;
+    border-radius: 10%;
+    padding: 40px;
+    margin-left:430px;
+    margin-bottom:40px;
+    margin-top:100px;
+ 
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Added to stack elements vertically */
+    width: 100%;
+    height: 100%;
+    transition: 1s ease-in-out;
+}
+
+.wrapper.active .form-wrapper.sign-in {
+    transform: translateY(-450px);
+}
+
+h2 {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+.input-group {
+    position: relative;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-group input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    padding: 0 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label {
+    top: -20px;
+}
+
+.remember {
+    margin: -5px 0 15px 5px;
+}
+
+.remember label {
+    color: #fff;
+    font-size: 14px;
+}
+
+.remember label input {
+    accent-color: red;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    background: red;
+    box-shadow: 0 0 10px red;
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+
+.signUp-link {
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.signUp-link p {
+    color: #fff;
+}
+
+/*.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: #f44336; /* Red color for error messages */
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* If you plan to use different types of messages (info, success, warning), you might want to add specific styles for each. For example: */
+.alert-success {
+    background-color: #4CAF50; /* Green color for success messages */
+}
+.alert-info {
+    background-color: #2196F3; /* Blue color for info messages */
+}
+.alert-warning {
+    background-color: #ff9800; /* Orange color for warning messages */
+}*/
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto; /* Push the footer to the bottom */
+    margin-top: 0px;
+
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #f00;
+}
+
+.TM {
+    margin-top: 10px 50px; /* Adjust as needed */
+}
+
+.alert-custom {
+    background-color: #f8d7da; /* your custom background color */
+    color: #721c24; /* your custom text color */
+    border-color: #f5c6cb; /* your custom border color */
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}"><img alt="Home" src="{% static 'images/bdlogo.png' %}"></a>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'scan' %}">Scan</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'login' %}">Login</a>
+           
+        </div>
+    </nav>
+
+  
+    
+
+    
+
+      
+
+   <div class="wrapper">
+    
+         <div class="form-wrapper sign-in">
+       {% for message in messages %}
+    {% if message.tags == 'warning' %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="background-color: #fff3cd; color: #856404; border-color: #ffeeba; border-radius:18px; padding:12px;" id="alertMessage">
+            <strong>{{ message }}</strong>
+        </div>
+    {% elif message.tags == 'success' %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style="background-color: #d4edda; color: #155724; border-color: #c3e6cb; border-radius:18px; padding:12px;" id="alertMessage">
+            <strong>{{ message }}</strong>
+        </div>
+    {% else %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; border-radius:18px; padding:12px;" id="alertMessage">
+            <strong>{{ message }}</strong>
+        </div>
+    {% endif %}
+{% endfor %}
+
+
+
+   
+          
+             <form  autocomplete="off" action="{% url 'sign' %}"  method="post">{% csrf_token %}>
+                <h2>SignUp</h2>
+
+                <div class="input-group">
+                    <input type="text" id="username" name="name" required placeholder="UserName">
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" name="email" placeholder="Email"  >
+                </div>
+                <div class="input-group">
+                
+                    <input type="password" id="password" name="password" required placeholder="Password">
+                </div>
+                <div class="input-group">
+                  
+                    <input type="password" id="confirmPassword"  name="confirm_password" placeholder="Confirm Password">
+                </div>
+                <div id="error-messages" class="alert alert-danger" style="display: none;"></div>
+                <div class="remember">
+                    <label><input type="checkbox">Remember me</label>
+                </div>
+                <button type="submit">SignUp</button>
+                <div class="signUp-link">
+                    <p>Already have an account? <a href="{% url 'login' %}" class="signUpBtn-link">Login</a></p>
+                </div>
+            </form> 
+
+            
+            
+            
+
+        </div>
+    </div>
+   
+ <script>
+    function validateForm() {
+        var name = document.getElementById('username').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+
+        var errors = [];
+
+        // Validate username
+        if (!name.replace(/\s/g, '').match(/^[a-zA-Z]+$/)) {
+            errors.push('Username can only contain alphabets.');
+        }
+
+        // Validate email
+        if (!email.endsWith('@gmail.com') && !email.endsWith('@banasthali.in')) {
+            errors.push('Email must end with @gmail.com or @banasthali.in.');
+        }
+
+        // Validate password
+        if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()-_+=\[\]{}|:;"'<>,.?/~`])[0-9a-zA-Z!@#$%^&*()-_+=\[\]{}|:;"'<>,.?/~`]{8,}$/)) {
+            errors.push('Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, one digit, and one special character.');
+        }
+
+        // Validate confirm password
+        if (password !== confirmPassword) {
+            errors.push('Passwords do not match.');
+        }
+
+        if (errors.length > 0) {
+            // Display errors
+            var errorMessages = '<ul>';
+            errors.forEach(function(error) {
+                errorMessages += '<li>' + error + '</li>';
+            });
+            errorMessages += '</ul>';
+            document.getElementById('error-messages').innerHTML = errorMessages;
+
+            // Prevent form submission
+            return false;
+        }
+
+        // Form is valid, allow submission
+        return true;
+    }
+    setTimeout(function() {
+        document.getElementById('alertMessage').style.display = 'none';
+    }, 5000);
+</script>  
+
+
+    
+</body>
+
+</html>
+
+
+
+

@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="DP6_O_rtX4h9JrmNWNaYaMd9MMvkJ1vQaatH4515nyVZjle1AB3H1ANgcSa93WZfaHsxERTIkZLBNZGOINBB_Q" />
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start; /* Align elements to the left */
+    align-items: center;
+    position: fixed; 
+    top: 0; 
+    z-index: 999; 
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.nav-links a:hover {
+    color: #f00;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.limage img {
+    width: 100%;
+    height: auto;
+}
+
+.wrapper {
+    width: 400px;
+    height: 600px;
+    background: #000;
+    box-shadow: 0 0 50px red;
+    border-radius: 10%;
+    padding: 40px;
+    margin-top:100px;
+    margin-bottom:100px;
+    
+}
+.limage{
+    margin-top: 80px;
+    border-radius: 50px;
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Added to stack elements vertically */
+    width: 100%;
+    height: 100%;
+    transition: 1s ease-in-out;
+}
+
+.wrapper.active .form-wrapper.sign-in {
+    transform: translateY(-450px);
+}
+
+h2 {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+.input-group {
+    position: relative;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-group input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    padding: 0 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label {
+    top: -20px;
+}
+
+.remember {
+    margin: -5px 0 15px 5px;
+}
+
+.remember label {
+    color: #fff;
+    font-size: 14px;
+}
+
+.remember label input {
+    accent-color: red;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    background: red;
+    box-shadow: 0 0 10px red;
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+
+.signUp-link {
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.signUp-link p {
+    color: #fff;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+.footer a {
+    color: white;
+   
+}
+
+.footer a:hover {
+    color: #f00;
+}
+
+.TM {
+    margin-top: 10px 50px; /* Adjust as needed */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}"><img alt="Home" src="{% static 'images/bdlogo.png' %}"></a>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'scan' %}">Scan</a>
+            <a href="{% url 'help' %}">Help</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'login' %}">Login</a>
+            
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="wrapper">
+            <div class="form-wrapper sign-in">
+            {% for message in messages %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; border-radius:18px; padding:12px;" id="alertMessage">
+    <strong>{{ message }}</strong>
+</div>
+{% endfor %}
+                <form method="post">{% csrf_token %}>
+                    <h2>Login</h2>
+                    <div class="input-group">
+                        <!-- <label for="username">UserName</label> -->
+                        <input type="text" id="username" required placeholder="Name" name="name">
+                    </div>
+                    <div class="input-group">
+                        <!-- <label for="username">UserName</label> -->
+                        <input type="email" id="email" required placeholder="Email" name="email">
+                    </div>
+                    <div class="input-group">
+                        <!-- <label for="password">Password</label> -->
+                        <input type="password" id="password" required placeholder="Password" name="password">
+                    </div>
+                    <div class="remember">
+                        <label><input type="checkbox">Remember me</label>
+                    </div>
+                    <button type="submit">Login</button>
+                    <div class="signUp-link">
+                        <p>Don't have an account? <a href="{% url 'sign' %}" class="signUpBtn-link">SignUp</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="limage">
+            <img src="{% static 'images/login.jpg' %}" alt="error" height="570px" width="350px">
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row footer">
+            <div class="col-xs-12 center">
+                <p class="dark-gray"> &copy; All rights reserved. &#124; </ <br class="hidden-xs"/> This Website is developed by IT-3 group <a href="{% url 'contact' %}" target="_blank">Contact Us.</a></p>
+                <img class="TM" src="{% static 'images/logo.jpg' %}" height="100px" width="100px">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
